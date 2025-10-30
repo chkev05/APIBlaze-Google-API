@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Email</title>
+  <style>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      width: 400px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 500;
+      color: #444;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4285F4;
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #4285F4;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 18px;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #357AE8;
+    }
+
+    .revoke-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #EA4335; /* Google red */
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 8px; /* small spacing from previous element */
+    }
+
+    .revoke-button:hover {
+      background-color: #C62828; /* darker red on hover */
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/send-email" method="POST">
+    <h2>📧 Send an Email</h2>
+
+    <label for="to">To</label>
+    <input id="to" type="email" name="to" placeholder="recipient@example.com" required />
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" name="subject" placeholder="Subject" required />
+
+    <label for="body">Message</label>
+    <textarea id="body" name="body" placeholder="Write your message..." required></textarea>
+
+    <button type="submit">Send Email</button>
+    <a href="/revoke" class="revoke-button">Sign Out</a>
+
+    <div class="footer">Powered by KEVIN!!!</div>
+  </form>
+</body>
+</html>
