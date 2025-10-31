@@ -40,10 +40,10 @@ async function main() {
     saveUninitialized: false,
   }));
 
-  app.use(express.static(path.join(__dirname, '../public')));
+  app.use(express.static(path.join(__dirname, 'public')));
 
   app.get('/', (req, res) => {
-    res.sendFile('login.html', { root: path.join(__dirname, '../public') });
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
   });
 
   // redirecting user to Google's OAuth 2.0 server.
@@ -177,7 +177,7 @@ async function main() {
     }
 
     // Serve the email form HTML file
-    res.sendFile('send-email.html', { root: '../public' });
+    res.sendFile('send-email.html', { root: path.join(__dirname, 'public') });
   });
 
   app.use(express.urlencoded({ extended: true }));
