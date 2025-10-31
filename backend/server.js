@@ -12,10 +12,13 @@ require('dotenv').config();
 /**
  * To use OAuth2 authentication, we need access to a CLIENT_ID, CLIENT_SECRET, AND REDIRECT_URI.
  */
+
+const redirectUri = process.env.REDIRECT_URI || "http://localhost:3000/redirect";
+
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  "http://localhost:3000/redirect"
+  redirectUri
 );
 
 /**
@@ -252,10 +255,16 @@ async function main() {
     }
   });
 
-  const server = http.createServer(app);
-  const PORT = 3000;
-  server.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-  });
-}
+  if (require.main === module) {
+    // Running locally
+    const server = http.createServer(app);
+    const PORT = 3000;
+    server.listen(PORT, () => {
+      console.log(`Server is running at http://localhost:${PORT}`);
+    });
+  } else {
+    // Export for Vercel
+    module.exports = app;
+  }
+  }
 main().catch(console.error);
