@@ -65,3 +65,12 @@ By default, the server will run on http://localhost:3000 (or as specified in you
 ### Step 4.5: Regarding Email Information
 
 Email credentials or configuration details will be provided separately via email.
+
+## Vercel Deployment
+
+Before deploying, go to your Vercel project → **Settings → Environment Variables**, and add the following:
+
+GOOGLE_CLIENT_ID=your_client_id_here
+GOOGLE_CLIENT_SECRET=your_client_secret_here
+REDIRECT_URI=https://your-project.vercel.app/redirect
+SESSION_SECRET=your_session_secret
